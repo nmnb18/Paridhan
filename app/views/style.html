@@ -1,0 +1,69 @@
+<div class="se-pre-con load-opacity" ng-if="loader">
+    <div class="col-md-12 col-xs-12 load-content"><span>Please wait...</div>
+</div>
+<div class="men">
+    <div class="container">
+    	<div class="col-md-3">
+		  <h4 class="category-heading">Sizes</h4>
+    	  <ul class="product-categories">
+            <li class="cat-item cat-item-42" ng-repeat="size in productsSize">
+                <a href="#" ng-click="setFilterBySize('{{size.size}}', $event)">{{size.size}}</a>
+                <span class="count">({{size.sizeCount}})</span>
+            </li>
+		  </ul>
+		  <h4 class="category-heading">Sleeve Length</h4>
+    	  <ul class="product-categories">
+                <li class="cat-item cat-item-42" ng-repeat="length in productsLength"><a href="#" ng-click="setFilterByLength('{{length.productLength}}', $event)">{{length.productLength}}</a> <span class="count">({{length.lengthCount}})</span></li>
+		  </ul>
+          <h4 class="category-heading">Fit</h4>
+    	  <ul class="product-categories">
+              <li class="cat-item cat-item-42" ng-repeat="fit in productsFit"><a href="#" ng-click="setFilterByFit('{{fit.productFit}}', $event)">{{fit.productFit}}</a> <span class="count">({{fit.fitCount}})</span></li>
+		  </ul>
+		</div>
+    	<div class="col-md-9">
+            <div id="cbp-vm" class="col-md-12 sortBy">
+                <div class="col-md-3 text-align-center"
+                ng-class="{'selected': selectedIndex==0}" ng-click="sortNew(0)">
+                    <span class="sortTitle">New</span>
+                </div>
+                <div class="col-md-3 text-align-center"
+                ng-class="{'selected': selectedIndex==1}" ng-click="sortPopular(1)">
+                    <span class="sortTitle">Popular</span>
+                </div>
+                <div class="col-md-3 text-align-center"
+                ng-class="{'selected': selectedIndex==2}" ng-click="sortHighToLow(2, filter)">
+                    <span class="sortTitle">High 2 Low</span>
+                </div>
+                <div class="col-md-3 text-align-center"
+                ng-class="{'selected': selectedIndex==3}" ng-click="sortLowToHigh(3, -filter)">
+                    <span class="sortTitle">Low 2 High</span>
+                </div>
+            </div>
+    		<div id="cbp-vm" class="cbp-vm-switcher cbp-vm-view-grid">
+					<div class="clearfix"></div>
+					<ul>
+					  <li ng-repeat="product in productsList | orderBy:-price | filter:{length:byLength, fit:byFit, itemSize:bySize} | unique: 'id'">
+							<a class="cbp-vm-image" href="/#/singleProduct/{{product.id}}">
+							 <div class="view view-first">
+					   		  <div class="inner_content clearfix">
+								<div class="product_image">
+									<div class="mask1"><img src="http://portal.local.tailor/upload/Products/{{product.image}}" alt="image" class="img-responsive zoom-img"></div>
+									<div class="mask">
+			                       		<div class="info">Quick View</div>
+					                 </div>
+					                 <div class="product_container">
+									   <h4>{{product.name}}</h4>
+                                       <p>{{product.fit}}, {{product.length}}</p>
+									   <div class="price"><span>&#8377;&nbsp;</span>{{product.price}}</div>
+									 </div>
+								  </div>
+			                     </div>
+		                      </div>
+		                    </a>
+						</li>
+					</ul>
+				</div>
+
+    	</div>
+    </div>
+ </div>

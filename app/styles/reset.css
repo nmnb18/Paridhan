@@ -1,0 +1,214 @@
+.login-singup {
+    background-image: url('../images/login-back.jpg');
+    background-size: cover;
+}
+.privacy-content {
+    text-align: justify;
+    font-size: 12px;
+    margin-top: 15px;
+    padding: 15px 10px;
+}
+.privacy-heading {
+    background-color: #D3D3CF;
+    text-align: center;
+    padding: 10px;
+}
+.se-pre-con {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: url(../images/Preloader_7.gif) center no-repeat #fff;
+}
+.load-content {
+    position: absolute ;
+    top: 35% ;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+.category-heading {
+    background-color: rgba(211,211,207,0.5);
+    padding: 10px;
+}
+.border-bottom {
+    border-bottom: 1px dotted rgb(211,211,207);
+}
+.price_container {
+    display: inline-block;
+    width: 50%;
+    margin-right: 15px;
+}
+.grab-btn {
+    border: 1px solid !important;
+    border-radius: 5px !important;
+    display: inline-block;
+}
+.sortBy {
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(211,211,207,0.5);
+    margin-bottom: 10px;
+    color: #555;
+}
+.sortTitle {
+    font-size: 0.85em;
+    margin-bottom: 3px;
+    width: 201px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.text-align-center {
+    text-align: center;
+}
+.selected {
+    color: #f84545;
+}
+/*.input-fields{
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    color: #263238;
+    height: 36px;
+    margin-bottom: 15px;
+    padding-left: 10px;
+    padding-right: 30px;
+}
+input[type="email"] {
+    background: #fff url("/images/email-icon.png") no-repeat;
+    background-position: 97%;
+    background-position: center right 10px;
+    border: 1px solid #e5e5e5;
+}
+.btn-reset-cancel {
+    border-radius: 0;
+    border-color: #e5e5e5;
+    width: 49%;
+    background: #e5e5e5;
+}
+.btn-reset-success {
+    border-radius: 0;
+    border-color: #689f38;
+    background-color: #689f38;
+    width: 49%;
+}
+.reset-modal {
+    border-radius: 0px;
+}*/
+/*form styles*/
+#msform {
+	width: 400px;
+	margin: 50px auto;
+	text-align: center;
+	position: relative;
+}
+#msform fieldset {
+	background: white;
+	border: 0 none;
+	border-radius: 3px;
+	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+	padding: 20px 30px;
+
+	box-sizing: border-box;
+	width: 80%;
+	margin: 0 10%;
+
+	/*stacking fieldsets above each other*/
+	position: absolute;
+}
+/*Hide all except first fieldset*/
+#msform fieldset:not(:first-of-type) {
+	display: none;
+}
+/*inputs*/
+#msform input, #msform textarea {
+	padding: 15px;
+	border: 1px solid #ccc;
+	border-radius: 3px;
+	margin-bottom: 10px;
+	width: 100%;
+	box-sizing: border-box;
+	font-family: montserrat;
+	color: #2C3E50;
+	font-size: 13px;
+}
+/*buttons*/
+#msform .action-button {
+	width: 100px;
+	background: #27AE60;
+	font-weight: bold;
+	color: white;
+	border: 0 none;
+	border-radius: 1px;
+	cursor: pointer;
+	padding: 10px 5px;
+	margin: 10px 5px;
+}
+#msform .action-button:hover, #msform .action-button:focus {
+	box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
+}
+/*headings*/
+.fs-title {
+	font-size: 15px;
+	text-transform: uppercase;
+	color: #2C3E50;
+	margin-bottom: 10px;
+}
+.fs-subtitle {
+	font-weight: normal;
+	font-size: 13px;
+	color: #666;
+	margin-bottom: 20px;
+}
+/*progressbar*/
+#progressbar {
+	margin-bottom: 30px;
+	overflow: hidden;
+	/*CSS counters to number the steps*/
+	counter-reset: step;
+}
+#progressbar li {
+	list-style-type: none;
+	color: white;
+	text-transform: uppercase;
+	font-size: 9px;
+	width: 33.33%;
+	float: left;
+	position: relative;
+}
+#progressbar li:before {
+	content: counter(step);
+	counter-increment: step;
+	width: 20px;
+	line-height: 20px;
+	display: block;
+	font-size: 10px;
+	color: #333;
+	background: white;
+	border-radius: 3px;
+	margin: 0 auto 5px auto;
+}
+/*progressbar connectors*/
+#progressbar li:after {
+	content: '';
+	width: 100%;
+	height: 2px;
+	background: white;
+	position: absolute;
+	left: -50%;
+	top: 9px;
+	z-index: -1; /*put it behind the numbers*/
+}
+#progressbar li:first-child:after {
+	/*connector not needed before the first step*/
+	content: none;
+}
+/*marking active/completed steps green*/
+/*The number of the step and the connector before it = green*/
+#progressbar li.active:before,  #progressbar li.active:after{
+	background: #27AE60;
+	color: white;
+}
