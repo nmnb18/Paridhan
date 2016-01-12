@@ -1,29 +1,36 @@
-<div class="col-md-9 single_top">
-      	<div class="single_left">
-      	  <div class="labout span_1_of_a1">
-			<ul id="etalage">
-							<li>
-								<a href="optionallink.html">
-									<img class="etalage_thumb_image" src="images/s1.jpg" class="img-responsive" />
-									<img class="etalage_source_image" src="images/s2.jpg" class="img-responsive" title="" />
-								</a>
-							</li>
-							<li>
-								<img class="etalage_thumb_image" src="images/s2.jpg" class="img-responsive" />
-								<img class="etalage_source_image" src="images/s2.jpg" class="img-responsive" title="" />
-							</li>
-							<li>
-								<img class="etalage_thumb_image" src="images/s3.jpg" class="img-responsive"  />
-								<img class="etalage_source_image" src="images/s3.jpg"class="img-responsive"  />
-							</li>
-						    <li>
-								<img class="etalage_thumb_image" src="images/s4.jpg" class="img-responsive"  />
-								<img class="etalage_source_image" src="images/s4.jpg"class="img-responsive"  />
-							</li>
-			 </ul>
-		     <div class="clearfix"></div>
-	    </div>
-		<div class="cont1 span_2_of_a1">
+<div class="col-md-12 single_top product-detail">
+    <div class="single_left">
+        <div class="col-md-5">
+            <div id='carousel-custom' class='carousel slide' data-ride='carousel'>
+                <div class='carousel-outer'>
+          <!-- Wrapper for slides -->
+                <div class='carousel-inner'>
+                    <div class='item active'>
+                      <img src='http://placehold.it/400x200&text=slide1' alt='' />
+                    </div>
+                    <div class='item'>
+                      <img src='http://placehold.it/400x200&text=slide2' alt='' />
+                    </div>
+                    <div class='item'>
+                      <img src='http://placehold.it/400x200&text=slide3' alt='' />
+                    </div>
+                    <div class='item'>
+                      <img src='http://placehold.it/400x200&text=slide4' alt='' />
+                    </div>
+                </div>
+            </div>
+
+      <!-- Indicators -->
+            <ol class='carousel-indicators mCustomScrollbar'>
+                <li data-target='#carousel-custom' ng-non-bindable data-slide-to='0' class='active'><img src='http://placehold.it/100x50&text=slide1' alt='' /></li>
+                <li data-target='#carousel-custom' ng-non-bindable data-slide-to='1' class=""><img src='http://placehold.it/100x50&text=slide2' alt='' /></li>
+                <li data-target='#carousel-custom' ng-non-bindable data-slide-to='2' class=""><img src='http://placehold.it/100x50&text=slide3' alt='' /></li>
+                <li data-target='#carousel-custom' ng-non-bindable data-slide-to='3' class=""><img src='http://placehold.it/100x50&text=slide4' alt='' /></li>
+            </ol>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+		<div class="cont1 col-md-7">
 				<h1>{{item.name}}</h1>
                 <div class="border-bottom"></div>
 				<p class="availability">Availability: <span class="color">In stock</span></p>
@@ -41,13 +48,11 @@
                   <button title="Grab it Now" class="btn btn-primary btn-normal btn-inline grab-btn" ng-click="grabIt()">Grab it Now</button>
 				</div>
                 <div class="border-bottom"></div>
-
 			</div>
 		    <div class="clearfix"> </div>
 		</div>
-
-		</div>
-		<div class="col-md-3 related_product">
+	</div>
+		<!-- <div class="col-md-3 related_product">
 	      <h3 class="m_1">Related Products</h3>
 	      <ul class="product">
 	      	<li class="product_img"><img src="images/m5.jpg" class="img-responsive" alt=""/></li>
@@ -89,7 +94,6 @@
 	        </li>
 	      	<div class="clearfix"> </div>
 	      </ul>
-        </div>
-     <div class="clearfix"> </div>
-	</div>
-<div data-id="grab-it" ng-include="'views/modals/grabItModal.html'"></div>
+        </div> -->
+    <div class="clearfix"> </div>
+</div>

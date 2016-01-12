@@ -1,36 +1,76 @@
-<form id="msform">
-<!-- progressbar -->
-<ul id="progressbar">
-<li class="active">Account Setup</li>
-<li>Social Profiles</li>
-<li>Personal Details</li>
-</ul>
-<!-- fieldsets -->
-<fieldset>
-<h2 class="fs-title">Create your account</h2>
-<h3 class="fs-subtitle">This is step 1</h3>
-<input type="text" name="email" placeholder="Email" />
-<input type="password" name="pass" placeholder="Password" />
-<input type="password" name="cpass" placeholder="Confirm Password" />
-<input type="button" name="next" class="next action-button" value="Next" />
-</fieldset>
-<fieldset>
-<h2 class="fs-title">Social Profiles</h2>
-<h3 class="fs-subtitle">Your presence on the social network</h3>
-<input type="text" name="twitter" placeholder="Twitter" />
-<input type="text" name="facebook" placeholder="Facebook" />
-<input type="text" name="gplus" placeholder="Google Plus" />
-<input type="button" name="previous" class="previous action-button" value="Previous" />
-<input type="button" name="next" class="next action-button" value="Next" />
-</fieldset>
-<fieldset>
-<h2 class="fs-title">Personal Details</h2>
-<h3 class="fs-subtitle">We will never sell it</h3>
-<input type="text" name="fname" placeholder="First Name" />
-<input type="text" name="lname" placeholder="Last Name" />
-<input type="text" name="phone" placeholder="Phone" />
-<textarea name="address" placeholder="Address"></textarea>
-<input type="button" name="previous" class="previous action-button" value="Previous" />
-<input type="submit" name="submit" class="submit action-button" value="Submit" />
-</fieldset>
+<form ng-model="userForm" id="msform" name="userForm" novalidate>
+    <!-- progressbar -->
+    <div class="row">
+        <ul id="progressbar" class="col-md-12">
+            <li class="active" id="step1">Account Setup</li>
+            <li id="step2">Social Profiles</li>
+            <li id="step3">Delivery Details</li>
+        </ul>
+    </div>
+    <!-- fieldsets -->
+    <div class="row steps-container">
+        <fieldset id="account" class="col-md-4">
+            <h2 class="fs-title">Create your account</h2>
+            <h3 class="fs-subtitle">We will never sell it</h3>
+            <input type="email" ng-model="userData.email" name="email" placeholder="Email" required ng-minlength="5"
+            ng-maxlength="30"/>
+            <div class="help-block" ng-messages="userForm.email.$error" ng-if="userForm.email.$touched">
+                <p ng-message="minlength">Your email is too short.</p>
+                <p ng-message="maxlength">Your email is too long.</p>
+                <p ng-message="required">Your email is required.</p>
+                <p ng-message="email">Your email is not a valid email type.</p>
+            </div>
+            <input type="password" name="password" ng-model="userData.password" ng-minlength="5" ng-maxlength="15" placeholder="Password" required />
+            <div class="help-block" ng-messages="userForm.password.$error" ng-if="userForm.password.$touched">
+                <p ng-message="minlength">Your password is too short.</p>
+                <p ng-message="maxlength">Your password is too long.</p>            </div>
+            <input type="text" name="name" ng-model="userData.name" placeholder="Full Name" required ng-minlength="5"
+            ng-maxlength="50"/>
+            <div class="help-block" ng-messages="userForm.name.$error" ng-if="userForm.name.$touched">
+                <p ng-message="minlength">Your name is too short.</p>
+                <p ng-message="maxlength">Your name is too long.</p>
+                <p ng-message="required">Your name is required.</p>
+            </div>
+            <input type="tel" name="phone" placeholder="Phone" min-length="8" ng-model="userData.phone" ng-maxlength="12" required ng-pattern="/^[0-9]{1,12}$/" />
+            <div class="help-block" ng-messages="userForm.phone.$error" ng-if="userForm.phone.$touched">
+                <p ng-message="minlength">Your phone is too short.</p>
+                <p ng-message="maxlength">Your phone is too long.</p>
+                <p ng-message="required">Your phone is required.</p>
+                <p ng-message="pattern">Only numbers is required.</p>
+            </div>
+            <input type="button" name="next" class="next action-button" ng-click="showSocialProfile()" value="Next" />
+        </fieldset>
+        <fieldset id="social" disabled class="col-md-4">
+            <h2 class="fs-title">Social Profiles</h2>
+            <h3 class="fs-subtitle">Your presence on the social network</h3>
+            <input type="text" ng-model="userData.twitter" name="twitter" placeholder="Twitter" />
+            <input type="text" ng-model="userData.facebook" name="facebook" placeholder="Facebook" />
+            <input type="text" ng-model="userData.gplus" name="gplus" placeholder="Google Plus" />
+            <input type="text" ng-model="userData.insta" name="insta" placeholder="Instagram" />
+            <input type="button" name="previous" class="previous action-button" value="Previous" ng-click="showAccountProfile()" />
+            <input type="button" name="next" class="next action-button" value="Next" ng-click="showDeliveryProfile()"/>
+        </fieldset>
+        <fieldset disabled id="delivery" class="col-md-4">
+            <h2 class="fs-title">Delivery Details</h2>
+            <h3 class="fs-subtitle">Get in touch</h3>
+            <input required type="text" name="houseno" ng-model="userData.houseno" placeholder="Flat/House No" />
+            <div class="help-block" ng-messages="userForm.houseno.$error" ng-if="userForm.houseno.$touched">
+                <p ng-message="required">Your house no is required.</p>
+            </div>
+            <input required type="text" name="street" placeholder="Street" ng-model="userData.street" />
+            <div class="help-block" ng-messages="userForm.street.$error" ng-if="userForm.street.$touched">
+                <p ng-message="required">Your street is required.</p>
+            </div>
+            <input required type="text" name="zipcode" placeholder="Zip-code" ng-model="userData.zipcode" />
+            <div class="help-block" ng-messages="userForm.zipcode.$error" ng-if="userForm.zipcode.$touched">
+                <p ng-message="required">Your zipcode is required.</p>
+            </div>
+            <input required type="text" name="city" placeholder="City" ng-model="userData.city" />
+            <div class="help-block" ng-messages="userForm.city.$error" ng-if="userForm.city.$touched">
+                <p ng-message="required">Your city is required.</p>
+            </div>
+            <input type="button" name="previous" class="previous action-button" value="Previous" ng-click="showBackSocialProfile()" />
+            <input type="submit" name="submit" class="submit action-button" value="Submit" ng-click="submitDetails(userData)" />
+        </fieldset>
+    </div>
 </form>
