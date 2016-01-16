@@ -1,7 +1,31 @@
-.login-singup {
-    background-image: url('../images/login-back.jpg');
-    background-size: cover;
+.navbar-default {
+    background-color: transparent;
+    border-color: transparent;
 }
+.navbar-brand {
+    padding: 0px 15px !important;
+    position: relative;
+}
+.navbar-brand img {
+    position: absolute;
+    z-index: -9999;
+}
+.navbar-default .navbar-nav > li > a {
+    font-size: 22px;
+    color: #f84545;
+}
+.navbar-default .navbar-toggle {
+    border-color: #f84545;
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #f84545;
+}
+@media (max-width: 620px) {
+    .navbar-default .navbar-collapse.in {
+        background: #000;
+    }
+}
+
 .privacy-content {
     text-align: justify;
     font-size: 12px;

@@ -1,19 +1,26 @@
-<div class="login-singup">
+<form ng-model="loginForm" id="msform" name="loginForm" novalidate>
     <div class="row">
-        <div class="col-lg-5 col-md-5 col-xs-5 login-content">
-            <h2>Login</h2>
-            <form novalidate="" ng-submit="">
-                <div class="col-md-12 col-xs-12">
-                    <label>Email:</label>
-                    <input type="text" class="form-control" name="userEmail" ng-model="loginData.email">
-                </div>
-                <div class="col-md-12 col-xs-12">
-                    <label>Password:</label>
-                    <input type="password" class="form-control" name="userPassword" ng-model="loginData.password">
-                </div>
-            </form>
+        <div class="col-md-4">
         </div>
-        <div class="col-lg-7 col-md-7 col-xs-7">
+        <fieldset id="loginFields" class="col-md-4">
+            <h2 class="fs-title">Login</h2>
+            <h3 class="fs-subtitle">Its too Simple...</h3>
+            <input type="email" ng-model="userData.email" name="email" placeholder="Email" required ng-minlength="5"
+            ng-maxlength="30"/>
+            <div class="help-block" ng-messages="userForm.email.$error" ng-if="userForm.email.$touched">
+                <p ng-message="minlength">Your email is too short.</p>
+                <p ng-message="maxlength">Your email is too long.</p>
+                <p ng-message="required">Your email is required.</p>
+                <p ng-message="email">Your email is not a valid email type.</p>
+            </div>
+            <input type="password" name="password" ng-model="userData.password" ng-minlength="5" ng-maxlength="15" placeholder="Password" required />
+            <div class="help-block" ng-messages="userForm.password.$error" ng-if="userForm.password.$touched">
+                <p ng-message="minlength">Your password is too short.</p>
+                <p ng-message="maxlength">Your password is too long.</p>
+            </div>
+            <input type="button" name="next" class="next action-button" ng-click="submitLoginData()" value="Login" />
+        </fieldset>
+        <div class="col-md-4">
         </div>
     </div>
-</div>
+</form>

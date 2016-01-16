@@ -1,4 +1,4 @@
-<form ng-model="userForm" id="msform" name="userForm" novalidate>
+<div id="msform">
     <!-- progressbar -->
     <div class="row">
         <ul id="progressbar" class="col-md-12">
@@ -9,6 +9,7 @@
     </div>
     <!-- fieldsets -->
     <div class="row steps-container">
+        <form name="userForm" ng-model="userForm" novalidate>
         <fieldset id="account" class="col-md-4">
             <h2 class="fs-title">Create your account</h2>
             <h3 class="fs-subtitle">We will never sell it</h3>
@@ -38,8 +39,9 @@
                 <p ng-message="required">Your phone is required.</p>
                 <p ng-message="pattern">Only numbers is required.</p>
             </div>
-            <input type="button" name="next" class="next action-button" ng-click="showSocialProfile()" value="Next" />
+            <input type="button" name="next" class="next action-button" ng-disabled="userForm.$invalid" ng-click="showSocialProfile()" value="Next" />
         </fieldset>
+        </form>
         <fieldset id="social" disabled class="col-md-4">
             <h2 class="fs-title">Social Profiles</h2>
             <h3 class="fs-subtitle">Your presence on the social network</h3>
@@ -51,26 +53,29 @@
             <input type="button" name="next" class="next action-button" value="Next" ng-click="showDeliveryProfile()"/>
         </fieldset>
         <fieldset disabled id="delivery" class="col-md-4">
-            <h2 class="fs-title">Delivery Details</h2>
-            <h3 class="fs-subtitle">Get in touch</h3>
-            <input required type="text" name="houseno" ng-model="userData.houseno" placeholder="Flat/House No" />
-            <div class="help-block" ng-messages="userForm.houseno.$error" ng-if="userForm.houseno.$touched">
-                <p ng-message="required">Your house no is required.</p>
-            </div>
-            <input required type="text" name="street" placeholder="Street" ng-model="userData.street" />
-            <div class="help-block" ng-messages="userForm.street.$error" ng-if="userForm.street.$touched">
-                <p ng-message="required">Your street is required.</p>
-            </div>
-            <input required type="text" name="zipcode" placeholder="Zip-code" ng-model="userData.zipcode" />
-            <div class="help-block" ng-messages="userForm.zipcode.$error" ng-if="userForm.zipcode.$touched">
-                <p ng-message="required">Your zipcode is required.</p>
-            </div>
-            <input required type="text" name="city" placeholder="City" ng-model="userData.city" />
-            <div class="help-block" ng-messages="userForm.city.$error" ng-if="userForm.city.$touched">
-                <p ng-message="required">Your city is required.</p>
-            </div>
-            <input type="button" name="previous" class="previous action-button" value="Previous" ng-click="showBackSocialProfile()" />
-            <input type="submit" name="submit" class="submit action-button" value="Submit" ng-click="submitDetails(userData)" />
+            <form name="deliveryForm">
+                <h2 class="fs-title">Delivery Details</h2>
+                <h3 class="fs-subtitle">Get in touch</h3>
+                <input required type="text" name="houseno" ng-model="userData.houseno" placeholder="Flat/House No" />
+                <div class="help-block" ng-messages="deliveryForm.houseno.$error" ng-if="deliveryForm.houseno.$touched">
+                    <p ng-message="required">Your house no is required.</p>
+                </div>
+                <input required type="text" name="street" placeholder="Street" ng-model="userData.street" />
+                <div class="help-block" ng-messages="deliveryForm.street.$error" ng-if="deliveryForm.street.$touched">
+                    <p ng-message="required">Your street is required.</p>
+                </div>
+                <input required type="text" name="zipcode" placeholder="Zip-code" ng-model="userData.zipcode" />
+                <div class="help-block" ng-messages="deliveryForm.zipcode.$error" ng-if="deliveryForm.zipcode.$touched">
+                    <p ng-message="required">Your zipcode is required.</p>
+                </div>
+                <input required type="text" name="city" placeholder="City" ng-model="userData.city" />
+                <div class="help-block" ng-messages="deliveryForm.city.$error" ng-if="deliveryForm.city.$touched">
+                    <p ng-message="required">Your city is required.</p>
+                </div>
+                <input type="button" name="previous" class="previous action-button" value="Previous" ng-click="showBackSocialProfile()" />
+                <input type="submit" name="submit" class="submit action-button" ng-disabled="deliveryForm.$error"
+                value="Submit" ng-click="submitDetails(userData)" />
+            </form>
         </fieldset>
     </div>
-</form>
+</div>
